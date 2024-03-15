@@ -1,14 +1,10 @@
-
 const express = require("express");
 const router = express.Router();
 
-// /api/user + /
-router.get("/", function (req, res, next) {
-    res.status(200).json({ success: true, message: "This is test route" });
-});
+const { home, createuser } = require("../controllers/userControllers");
 
-router.post("/create", function (req, res, next) {
-    res.status(201).json({ success: true, user: req.body });
-});
+router.get("/", home);
+
+router.post("/create", createuser);
 
 module.exports = router;
